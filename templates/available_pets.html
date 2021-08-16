@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {%block title%}Available Pets{% endblock %} {% block content %} <div
+    class="container justify-content-center">
+    <h1 class="display-1">Available Pets</h1>
+    <div class="row">{% for pet in pets %} {% if pet.available %} <div class="col-md-6">
+            <div class="petcontainer">
+                <div><img class="img-fluid homephoto" src="{{pet.photo_url}}" alt=""></div>
+                <a href="/pets/{{pet.id}}">{{pet.name}} - {{pet.species.capitalize()}}, {{pet.age}}</a>
+            </div>
+        </div> {% endif %}{% endfor %} <div class="d-flex mt-5"><a href="/pets/add" class="btn btn-success btn-lg">Add a
+                Pet</a>
+        </div>
+    </div>
+</div> {% endblock %}
